@@ -6,22 +6,16 @@
 //Dependencies
 var express = require("express");
 var path = require("path");
-var friends = require("./app/data/friends");
+var router = require("./app/routing/apiRoutes");
 
 //Set up Express App
 var app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 8080;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.get("/", function (req, res) {
-    res.send("Welcome to the Friend Page");
-});
-
-app.get("/api/friends", function (req, res) {
-    return res.json(friends.friends);
-});
-
+//ROUTER
+require('./app/routing/apiRoutes')(app); 
 
 // Listener
 // ===========================================================
