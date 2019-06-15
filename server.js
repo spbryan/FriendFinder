@@ -5,8 +5,6 @@
  ***********************************************/
 //Dependencies
 var express = require("express");
-var path = require("path");
-var router = require("./app/routing/apiRoutes");
 
 //Set up Express App
 var app = express();
@@ -16,6 +14,7 @@ app.use(express.json());
 
 //ROUTER
 require('./app/routing/apiRoutes')(app); 
+require('./app/routing/htmlRoutes')(app); 
 
 // Listener
 // ===========================================================
