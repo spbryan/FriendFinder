@@ -6,11 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Friend Finder</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            /* background-image: url(https://cdn.wallpapersafari.com/70/29/d3pkjo.jpg); */
+            background-image: url(https://thumbs.dreamstime.com/z/scribbles-crazy-3150051.jpg);
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Welcome to the home page</h1>
-
+    <section class="container">
+        <section class="row mt-5">
+            <div class="col-sm-8">
+                <div class="jumbotron pb-5">
+                    <h1 class="display-4">Friend Finder</h1>
+                    <p class="lead">Answer a few basic and deeply personal questions and we will find you a</p>
+                    <h2 id="bff">BEST FRIEND FOREVER!!!</h2>
+                    <hr class="my-4">
+                    <p><i>*This site is not legally responsible for any emotional or physical damage they may result from getting overly close and personal with perfect strangers</i></p>
+                    <p class="lead">
+                        <a class="btn btn-primary btn-lg" href="/survey" role="button">Find My BFF</a>
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-4" id="stalker">
+                <img src="https://www.thesun.co.uk/wp-content/uploads/2016/06/nintchdbpict000242868564.jpg" alt="Stalker Girl" height="450" width="500">
+            </div>
+        </section>
+    </section>
 </body>
 
 </html>
