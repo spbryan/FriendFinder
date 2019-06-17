@@ -101,14 +101,16 @@
 
         $("#submit-btn").on("click", function (event) {
             event.preventDefault();
+            var scoreList = [];
+            for (var i = 1; i < 11; i++) {
+                scoreList.push($("#question-" + i + " :checked").val().trim());
+            }
+
             var newFriend = {
                 name: $("#name").val().trim(),
                 photo: $("#photo-link").val().trim(),
-                question1: $("#question-1 :checked").val().trim(),
-                question2: $("#question-2 :checked").val().trim(),
+                scores: scoreList
             };
-
-            
 
             console.log(newFriend);
 
