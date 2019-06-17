@@ -11,8 +11,8 @@
 
     <style>
         /* body { */
-            /* background-image: url(https://cdn.wallpapersafari.com/70/29/d3pkjo.jpg); */
-            /* background-image: url(https://thumbs.dreamstime.com/z/scribbles-crazy-3150051.jpg);
+        /* background-image: url(https://cdn.wallpapersafari.com/70/29/d3pkjo.jpg); */
+        /* background-image: url(https://thumbs.dreamstime.com/z/scribbles-crazy-3150051.jpg);
             background-attachment: fixed;
             background-size: cover; */
         /* } */
@@ -42,26 +42,28 @@
                                 <label for="role">Link to Photo Image (Required)</label>
                                 <input type="text" class="form-control" id="photo-link">
                             </div>
-                            <h5><i>Answer the following on a scale of 1 (Violently Disagree) to 5 (Passionately Agree)</i></h5>
-                            <div class="form-group">
+                            <h5><i>Answer the following on a scale of 1 (Violently Disagree) to 5 (Passionately
+                                    Agree)</i></h5>
+                            <div id="survey-view"></div>
+                            <!-- <div class="form-group">
                                 <h4>Question 1</h4>
                                 <p>You feel different feelings that are both sad and exciting... a lot</p>
                                 <label class="radio-inline">
-                                    <input type="radio" name="optradio">  1
+                                    <input type="radio" name="optradio"> 1
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" name="optradio">  2
+                                    <input type="radio" name="optradio"> 2
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" name="optradio">  3
+                                    <input type="radio" name="optradio"> 3
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" name="optradio">  4
+                                    <input type="radio" name="optradio"> 4
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" name="optradio">  5
+                                    <input type="radio" name="optradio"> 5
                                 </label>
-                            </div>
+                            </div> -->
                         </form>
                         <br>
                         <div class="text-right">
@@ -73,6 +75,70 @@
             </div>
         </section>
     </section>
+
+    <script type="text/javascript">
+        var surveyList = ["You feel different feelings that are both sad and exciting... a lot",
+            "You let your heart have what it wants when it wants",
+            "You sometimes feel like people around you can read your thoughts and like you for it",
+            "You sometimes feel like just shouting 'Purple Hippo!' at random people",
+            "You think that restraining orders are mere scraps of paper that mean nothing where destiny is involved",
+            "Your favorite color is neon and unicorns",
+            "You believe Grumpy Cat to be a national treasure",
+            "You feel that sometimes the best friends to listen to are those in your head",
+            "You agree with the following: Friends are like walls, sometimes you lean on them and sometimes it's good knowing they're padded",
+            "You feel that, if your parents are in the same house as you, maybe it's THEM that live with you."];
+
+        for (var i = 0; i < surveyList.length; i++) {
+            var questionDiv = $("<div>");
+            questionDiv.addClass("form-group");
+            var questionHeader = $("<h4>");
+            questionHeader.text("Question " + (i + 1));
+            var question = $("<p>");
+            question.text(surveyList[i]);
+
+            questionDiv.append(questionHeader);
+            questionDiv.append(question);
+            displayRadioButtons("question-" + (i + 1), questionDiv);
+            $("#survey-view").append(questionDiv);
+
+            // var button = $("<button>");
+            // button.addClass("topic-button");
+            // button.attr("data-name", topicList[i]);
+            // button.text(topicList[i]);
+            // $("#buttons-view").append(button);
+        }
+
+        function displayRadioButtons(id, questionDiv) {
+            for (var i = 1; i < 6; i++) {
+                var label = $("<label>");
+                label.addClass("radio-inline");
+                label.attr("id", id);
+                var input = $("<input>");
+                input.attr("type", "radio");
+                input.attr("name", "optradio");
+                label.append(input);
+                label.append("  " + i);
+                questionDiv.append(label);
+            }
+        }
+
+        // $("#add-btn").on("click", function (event) {
+        //     event.preventDefault();
+        //     var newCharacter = {
+        //         name: $("#name").val().trim(),
+        //         role: $("#role").val().trim(),
+        //         age: $("#age").val().trim(),
+        //         forcePoints: $("#force-points").val().trim()
+        //     };
+
+        //     // Question: What does this code do??
+        //     $.post("/api/characters", newCharacter)
+        //         .then(function (data) {
+        //             console.log("add.html", data);
+        //             alert("Adding character...");
+        //         });
+        // });
+    </script>
 </body>
 
 </html>
