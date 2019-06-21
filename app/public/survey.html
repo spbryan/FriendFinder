@@ -149,10 +149,8 @@
 
                 $.post("/api/friends", newFriend)
                     .then(function (data) {
-                        // $("#bff-name").text(data.name);
-                        // $("#bff-img").attr("src", data.photo);
-                        // $("#bff-modal").modal("show");
-                        console.log("boom");
+                        $("#bff-name").text(data.name);
+                        $("#bff-img").attr("src", data.photo);
                         $("#bff-modal").modal('show');
                     });
             });
