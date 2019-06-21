@@ -11,13 +11,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
     <style>
-        /* body { */
-        /* background-image: url(https://cdn.wallpapersafari.com/70/29/d3pkjo.jpg); */
-        /* background-image: url(https://thumbs.dreamstime.com/z/scribbles-crazy-3150051.jpg);
-            background-attachment: fixed;
-            background-size: cover; */
-        /* } */
-
         .radio-inline {
             margin-right: 25px;
         }
@@ -28,6 +21,10 @@
             padding: 5px;
             width: 300px;
             height: 300px;
+        }
+
+        #links {
+            margin-top: 15px;
         }
     </style>
 </head>
@@ -56,11 +53,15 @@
                             <div id="survey-view"></div>
                         </form>
                         <br>
-                        <div class="text-right">
+                        <div class="text-left">
                             <button type="submit" class="btn btn-primary btn-md" id="submit-btn"><span
                                     class="fa fa-fire"></span>Submit Survey</button>
                         </div>
                     </div>
+                </div>
+                <div id="links">
+                    <p><a href="/api/friends">API Friends List</a> | <a
+                            href="https://github.com/spbryan/FriendFinder">GitHub Repo</a></p>
                 </div>
             </div>
         </section>
@@ -147,17 +148,19 @@
                     scores: scoreList
                 };
 
-                console.log(newFriend);
-                // $("#myModal").modal();
-                $("#bff-modal").modal();
-                console.log("arg");
+                if (newFriend.name && newFriend.photo) {
+                    $("#bff-modal").modal();
 
-                $.post("/api/friends", newFriend)
-                    .then(function (data) {
-                        $("#bff-name").text(data.name);
-                        $("#bff-img").attr("src", data.photo);
-                        $("#bff-modal").modal('show');
-                    });
+                    $.post("/api/friends", newFriend)
+                        .then(function (data) {
+                            $("#bff-name").text(data.name);
+                            $("#bff-img").attr("src", data.photo);
+                            $("#bff-modal").modal('show');
+                        });
+                }
+                else {
+                    alert("We need to know who you are and what you look like!")
+                }
             });
         });
     </script>
