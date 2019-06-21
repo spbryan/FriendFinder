@@ -37,22 +37,6 @@ var friends = [
         ]
     },
     {
-        name: "Percival Quito",
-        photo: "https://funnyflix.video/wp-content/uploads/2019/01/bnkIwF4wQZo-370x208.jpg",
-        scores: [
-            5,
-            2,
-            1,
-            3,
-            3,
-            2,
-            4,
-            2,
-            1,
-            5
-        ]
-    },
-    {
         name: "Daylon Veltry",
         photo: "https://cdn.buzznick.com/wp-content/uploads/2015/06/selfie-3.jpeg",
         scores: [

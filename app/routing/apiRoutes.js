@@ -24,12 +24,31 @@ module.exports = function (app) {
         });
         newFriend.scores = numericScores;
         friendList.push(newFriend);
-        res.json(newFriend);
-        // res.redirect(307, path.join(__dirname, "/../public/home.html"));
+        var bff = findBFF(newFriend);
+        res.json(bff);
     });
-
-    // function convertScores(scores) {
-    //     for(var i = 0; i < scores.length; i++)
-    //     return scores;
-    // }
 };
+
+/**
+ * Match input scores against those in the current array
+ * to find the closest match
+ * @param newFriend 
+ */
+function findBFF(newFriend) {
+    var scoreMatch = 100;
+    var matchIndex = 0;
+
+    for (var i = 0; i < friend.friends.length; i++) {
+        var totalDifference = 0;
+        for (var x = 0; x < newFriend.scores.length; x++) {
+            var diff = friend.friends[i].scores[x] - newFriend.scores[x];
+            totalDifference += Math.abs(diff);
+        }
+        if (totalDifference < scoreMatch) {
+            scoreMatch = totalDifference;
+            matchIndex = i;
+        }
+    }
+
+    return friend.friends[matchIndex];
+}
