@@ -23,8 +23,8 @@ module.exports = function (app) {
             return parseInt(x, 10);
         });
         newFriend.scores = numericScores;
-        friendList.push(newFriend);
         var bff = findBFF(newFriend);
+        friendList.push(newFriend);
         res.json(bff);
     });
 };
